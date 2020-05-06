@@ -76,20 +76,21 @@ DROP TABLE IF EXISTS `medical_record`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `medical_record` (
-  `RecID` int NOT NULL,
+  `RecID` int NOT NULL AUTO_INCREMENT,
   `PatientID` varchar(50) NOT NULL,
   `PhysID` varchar(50) NOT NULL,
-  `Treatment` varchar(20) DEFAULT NULL,
-  `Prescription` varchar(20) DEFAULT NULL,
+  `Treatment` text,
+  `Prescription` text,
   `Appt_Date` date DEFAULT NULL,
   `Bill_Amt` float NOT NULL,
-  `symptoms` varchar(50) DEFAULT NULL,
+  `symptoms` text,
+  `archive_flag` enum('0','1') DEFAULT NULL,
   PRIMARY KEY (`RecID`),
   KEY `PatientID` (`PatientID`),
   KEY `PhysID` (`PhysID`),
   CONSTRAINT `medical_record_ibfk_1` FOREIGN KEY (`PatientID`) REFERENCES `patients` (`UserID`),
   CONSTRAINT `medical_record_ibfk_2` FOREIGN KEY (`PhysID`) REFERENCES `physicians` (`UserID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,6 +99,7 @@ CREATE TABLE `medical_record` (
 
 LOCK TABLES `medical_record` WRITE;
 /*!40000 ALTER TABLE `medical_record` DISABLE KEYS */;
+INSERT INTO `medical_record` VALUES (1,'JNeis','TanakaBam','Hello','Hello','2020-05-06',12.12,'Hello','0'),(4,'JNeis','TanakaBam','Hello','Hello','2020-05-06',420.69,'Hello','0'),(5,'JNeis','TanakaBam','Goodbye','DrugDrugDrug','2020-05-06',420.69,'Goodbye','0'),(6,'JNeis','TanakaBam',';laskdjfg;alkj`','a;lskjdfadf','2020-05-06',420.69,';alkisjdf;lkj','0'),(7,'KJameson','TanakaBam','Broken Femur. Ordered bone resetting and cast.','Painkillers and rest','2020-05-06',420.69,'Broken bone - Femur','0'),(8,'JNeis','TanakaBam','Test','Testerton','2020-05-06',420.69,'Testy','0');
 /*!40000 ALTER TABLE `medical_record` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +119,7 @@ CREATE TABLE `patients` (
   `Sex` char(1) NOT NULL,
   `Address` varchar(100) DEFAULT NULL,
   `SSN` char(11) NOT NULL,
-  `FinancialID` int NOT NULL,
+  `FinancialID` int DEFAULT NULL,
   `InsuranceID` int DEFAULT NULL,
   PRIMARY KEY (`UserID`),
   UNIQUE KEY `FinancialID` (`FinancialID`),
@@ -131,7 +133,7 @@ CREATE TABLE `patients` (
 
 LOCK TABLES `patients` WRITE;
 /*!40000 ALTER TABLE `patients` DISABLE KEYS */;
-INSERT INTO `patients` VALUES ('JNeis','hello','John','Neis',21,'M','111 Example St.','123-45-6789',1,1);
+INSERT INTO `patients` VALUES ('JNeis','hello','John','Neis',21,'M','111 Example St.','123-45-6789',1,1),('KJameson','Mullberry','Kyle','Winthrop',37,'M','10 Maple Rd','999-88-7777',NULL,3),('KSmith','Pass','Kim','Smith',24,'F','123 Oak Lane','111-22-3333',2,2);
 /*!40000 ALTER TABLE `patients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-05 22:04:24
+-- Dump completed on 2020-05-06 17:04:21
