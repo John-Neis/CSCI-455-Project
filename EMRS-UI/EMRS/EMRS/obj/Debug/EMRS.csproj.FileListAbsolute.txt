@@ -1,0 +1,16 @@
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\bin\Debug\EMRS.exe.config
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\bin\Debug\EMRS.exe
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\bin\Debug\EMRS.pdb
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\obj\Debug\EMRS.csprojAssemblyReference.cache
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\obj\Debug\EMRS.Properties.Resources.resources
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\obj\Debug\EMRS.csproj.GenerateResource.cache
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\obj\Debug\EMRS.exe
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\obj\Debug\EMRS.pdb
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\obj\Debug\EMRS.WindowContainer.resources
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\bin\Debug\MySql.Data.dll
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\bin\Debug\Google.Protobuf.dll
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\bin\Debug\Renci.SshNet.dll
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\bin\Debug\MySql.Data.xml
+C:\Users\Jack\Desktop\CSCI 455\CSCI-455-Project\EMRS-UI\EMRS\EMRS\obj\Debug\EMRS.csproj.CopyComplete
