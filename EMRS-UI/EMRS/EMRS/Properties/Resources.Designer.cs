@@ -73,6 +73,16 @@ namespace EMRS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Back_Option_Button {
+            get {
+                object obj = ResourceManager.GetObject("Back_Option_Button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Blank_Option_button {
             get {
                 object obj = ResourceManager.GetObject("Blank_Option_button", resourceCulture);
@@ -96,6 +106,16 @@ namespace EMRS.Properties {
         internal static System.Drawing.Bitmap Change_Patient_Option_Button {
             get {
                 object obj = ResourceManager.GetObject("Change_Patient_Option_Button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Create_Record_Option_Button {
+            get {
+                object obj = ResourceManager.GetObject("Create_Record_Option_Button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +176,16 @@ namespace EMRS.Properties {
         internal static System.Drawing.Bitmap PPrescriptions_Option_Button {
             get {
                 object obj = ResourceManager.GetObject("PPrescriptions_Option_Button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Submit_Option_Button {
+            get {
+                object obj = ResourceManager.GetObject("Submit_Option_Button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

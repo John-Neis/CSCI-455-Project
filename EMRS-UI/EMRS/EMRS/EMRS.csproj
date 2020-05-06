@@ -89,6 +89,8 @@
     <None Include="Resources\Minimize.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Create_Record_Option_Button.png" />
+    <None Include="Resources\Submit_Option_Button.png" />
     <None Include="Resources\Change_Patient_Option_Button.png" />
     <None Include="Resources\EPrescription_Option_Button.png" />
     <None Include="Resources\IPrescription_Option_Button.png" />
@@ -97,6 +99,7 @@
     <None Include="Resources\Symptom_Option_Button.png" />
     <None Include="Resources\Blank_Option_button.png" />
     <None Include="Resources\Archive_Option_Button.png" />
+    <None Include="Resources\Back_Option_Button.png" />
     <Content Include="Resources\Caduceus_logo.ico" />
     <Content Include="Resources\Caduceus_logo.png" />
   </ItemGroup>

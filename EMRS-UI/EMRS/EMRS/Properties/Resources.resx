@@ -118,17 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Change_Patient_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Change_Patient_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Archive_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Archive_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PDiagnoses_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PDiagnoses_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EPrescription_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EPrescription_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PPrescriptions_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PPrescriptions_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Archive_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Archive_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Symptom_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Symptom_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IPrescription_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IPrescription_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Back_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Back_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Caduceus_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Caduceus_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Submit_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Submit_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Blank_Option_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blank_Option_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,19 +154,10 @@
   <data name="Minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IPrescription_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IPrescription_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EPrescription_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EPrescription_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Symptom_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Symptom_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PPrescriptions_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PPrescriptions_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Caduceus_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Caduceus_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Change_Patient_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Change_Patient_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Create_Record_Option_Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Create_Record_Option_Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

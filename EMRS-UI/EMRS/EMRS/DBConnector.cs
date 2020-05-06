@@ -113,19 +113,21 @@ namespace EMRS
                     break;
                 case "medical_record":
                     sql = "insert into medical_record values (" +
-                          data[0] + ", " + //RecID        int
-                          data[1] + ", " + //PatientID    varchar FK patients(UserID)
-                          data[2] + ", " + //PhysID       varchar FK physicians(UserID)
-                          data[3] + ", " + //Treatment    varchar
-                          data[4] + ", " + //Prescription varchar
-                          data[5] + ", " + //Appt_Date    date
-                          data[6] + ", " + //Bill_Amt     float(2)
-                          data[7] + ");";  //Symptoms     varchar
+                          "NULL, '" +       //RecID        int auto_increment
+                          data[1] + "', '" + //PatientID    varchar FK patients(UserID)
+                          data[2] + "', '" + //PhysID       varchar FK physicians(UserID)
+                          data[3] + "', '" + //Treatment    varchar
+                          data[4] + "', '" + //Prescription varchar
+                          data[5] + "', " + //Appt_Date    date
+                          data[6] + ", '" + //Bill_Amt     float(2)
+                          data[7] + "', '" + //Symptoms     varchar
+                          data[8] + "');";  //ArchiveFlag  enum(0, 1)
                     break;
             }
 
             if(this.OpenConnection())
             {
+                Console.WriteLine(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
