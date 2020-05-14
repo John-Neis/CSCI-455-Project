@@ -18,6 +18,7 @@ namespace EMRS
         public const int HT_CAPTION = 0x2;
         public string userType = "Physician";
         public string userTitle = "Dr.";
+        public string patID = "";
 
 
         public DBConnector dbh;
@@ -41,6 +42,37 @@ namespace EMRS
             dbh = new DBConnector();
             //Console.WriteLine(dbh.OpenConnection());
             InitializeComponent();
+            ArchivePanel.Parent = bodyPanel;
+            ArchivePanel.Location = new Point(307, 5);
+            ArchivePanel.BringToFront();
+
+            PatientSearchPanel.Parent = bodyPanel;
+            PatientSearchPanel.Location = new Point(307, 5);
+            PatientSearchPanel.BringToFront();
+
+            AddMedRecordPanel.Parent = bodyPanel;
+            AddMedRecordPanel.Location = new Point(307, 5);
+            AddMedRecordPanel.BringToFront();
+
+            VSymptomPanel.Parent = bodyPanel;
+            VSymptomPanel.Location = new Point(307, 5);
+            VSymptomPanel.BringToFront();
+
+            VPDiagnosesPanel.Parent = bodyPanel;
+            VPDiagnosesPanel.Location = new Point(307, 5);
+            VPDiagnosesPanel.BringToFront();
+
+            VPPresctiptPanel.Parent = bodyPanel;
+            VPPresctiptPanel.Location = new Point(307, 5);
+            VPPresctiptPanel.BringToFront();
+
+            IPrescriptPanel.Parent = bodyPanel;
+            IPrescriptPanel.Location = new Point(307, 5);
+            IPrescriptPanel.BringToFront();
+
+            EPrescriptPanel.Parent = bodyPanel;
+            EPrescriptPanel.Location = new Point(307, 5);
+            EPrescriptPanel.BringToFront();
         }
         #endregion
 
@@ -61,32 +93,143 @@ namespace EMRS
         #region Body Controls
         private void SymptomButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Yup still here");
+            VSymptomPanel.Visible = true;
+            SympRTBox.Text = "";
+            string sql = "select symptoms from medical_record where PatientID = '" + patID + "' and PhysID = 'TanakaBam';";
+            if(dbh.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, dbh.connection);
+                MySqlDataReader dReader = cmd.ExecuteReader();
+
+                if(!dReader.HasRows)
+                {
+                    SympRTBox.Text = "No Patient Selected";
+                }
+                else
+                {
+                    string symptoms = "";
+                    while (dReader.Read())
+                    {
+                        symptoms = dReader["symptoms"] + "";
+                    }
+
+                    SympRTBox.Text = symptoms;
+                }
+
+                dbh.CloseConnection();
+            }
         }
 
         private void PDiagnosesButton_Click(object sender, EventArgs e)
         {
+            VPDiagnosesPanel.Visible = true;
+            string sql = "select Treatment, Appt_Date from medical_record where PatientID = '" + patID + "' and PhysID = 'TanakaBam';";
 
+            if(dbh.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, dbh.connection);
+                MySqlDataReader dReader = cmd.ExecuteReader();
+
+                if(!dReader.HasRows)
+                {
+                    VPDiagRTBox.Text = "No record available";
+                }
+                else
+                {
+                    VPDiagRTBox.Text = "";
+                    while(dReader.Read())
+                    {
+                        VPDiagRTBox.Text += dReader["Appt_Date"] + ": " + dReader["Treatment"] + "\n\n";
+                    }
+                }
+
+                dbh.CloseConnection();
+            }
         }
 
         private void PPrescriptionsButton_Click(object sender, EventArgs e)
         {
+            VPPresctiptPanel.Visible = true;
+            string sql = "select Prescription, Appt_Date from medical_record where PatientID = '" + patID + "' and PhysID = 'TanakaBam';";
 
+            if (dbh.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, dbh.connection);
+                MySqlDataReader dReader = cmd.ExecuteReader();
+
+                if (!dReader.HasRows)
+                {
+                    VPPrescriptRTBox.Text = "No record available";
+                }
+                else
+                {
+                    VPPrescriptRTBox.Text = "";
+                    while (dReader.Read())
+                    {
+                        VPPrescriptRTBox.Text += dReader["Appt_Date"] + ": " + dReader["Prescription"] + "\n\n";
+                    }
+                }
+
+                dbh.CloseConnection();
+            }
         }
 
         private void IPrescriptionsButton_Click(object sender, EventArgs e)
         {
-
+            IPrescriptPanel.Visible = true;
         }
 
         private void EPrescriptionsButton_Click(object sender, EventArgs e)
         {
+           
 
+            if(patID == "")
+            {
+                return;
+            }
+
+            EPrescriptPanel.Visible = true;
+
+            string pre_sql = "select RecID, Prescription from medical_record where PatientID = '" + patID + "' and PhysID = 'TanakaBam';";
+            if (dbh.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(pre_sql, dbh.connection);
+                MySqlDataReader dReader = cmd.ExecuteReader();
+
+                string activePrescription = "";
+                while (dReader.Read())
+                {
+                    activePrescription = dReader["Prescription"] + "";
+                }
+                dReader.Close();
+
+                EPrescriptRTBox.Text = activePrescription;
+                dbh.CloseConnection();
+            }
         }
 
         private void ArchiveButton_Click(object sender, EventArgs e)
         {
+            ArchivePanel.Visible = true;
+            if(dbh.OpenConnection())
+            {
+                string sql = "select * from medical_record where PatientID = '" + patID + "' and PhysID = 'TanakaBam' and archive_flag = '0';";
+                MySqlCommand cmd = new MySqlCommand(sql, dbh.connection);
+                MySqlDataReader dReader = cmd.ExecuteReader();
 
+                ArchListBox.Items.Clear();
+                if(!dReader.HasRows)
+                {
+                    ArchListBox.Items.Add("< No Records Selected >");
+                }
+
+                while(dReader.Read())
+                {
+                    ArchListBox.Items.Add("Rec: " + dReader["RecID"] + "\tPatient ID: " + dReader["PatientID"] + "\tAppointment: " + dReader["Appt_Date"]);
+                }
+
+                dbh.CloseConnection();
+            }
         }
 
         private void CPatientButton_Click(object sender, EventArgs e)
@@ -156,7 +299,7 @@ namespace EMRS
             int age = 0;
             if(int.TryParse(PAgeSearchBox.Text, out age))
             {
-                sql = "select FName, LName, Age, Sex, Address from patients where " +
+                sql = "select * from patients where " +
                             "FName like '%" + PFNameBox.Text + "%' and " +
                             "LName like '%" + PLNameBox.Text + "%' and " +
                             "Age = " + PAgeSearchBox.Text + " and " +
@@ -195,6 +338,7 @@ namespace EMRS
                     PAgeLabel.Text = "Age: " + dReader["Age"];
                     PSexLabel.Text = "Sex: " + dReader["Sex"];
                     PAddressLabel.Text = "Address: " + dReader["Address"];
+                    patID = dReader["UserID"] + "";
                 }
 
                 dbh.CloseConnection();
@@ -263,6 +407,141 @@ namespace EMRS
             PrescriptionDescBox.Text = "";
             MissingPatLabel.Visible = false;
             AddMedRecordPanel.Visible = false;
+        }
+        #endregion
+
+        #region Archive Record Controls
+        private void ArchiveBackBtn_Click(object sender, EventArgs e)
+        {
+            ArchivePanel.Visible = false;
+        }
+
+        private void ArchSubmitBtn_Click(object sender, EventArgs e)
+        {
+            string recID = "";
+            if(ArchListBox.SelectedIndex >= 0)
+            {
+                recID = ArchListBox.SelectedItem.ToString().Split(' ')[1].Split('\t')[0];
+            }
+            else
+            {
+                return;
+            }
+            
+            string sql = "update medical_record set archive_flag = '1' where RecID = " + recID + ";";
+            if(dbh.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, dbh.connection);
+                cmd.ExecuteNonQuery();
+                dbh.CloseConnection();
+            }
+            
+
+            ArchivePanel.Visible = false;
+        }
+        #endregion
+
+        #region View Symptoms Controls
+        private void VSymptomBtn_Click(object sender, EventArgs e)
+        {
+            VSymptomPanel.Visible = false;
+            SympRTBox.Text = "";
+        }
+        #endregion
+
+        #region View Previous Diagnoses Controls
+        private void VPDiagnosesBackBtn_Click(object sender, EventArgs e)
+        {
+            VPDiagnosesPanel.Visible = false;
+        }
+
+        #endregion
+
+        #region View Previous Prescription Controls
+        private void VPPrescriptBackBtn_Click(object sender, EventArgs e)
+        {
+            VPPresctiptPanel.Visible = false;
+        }
+        #endregion
+
+        #region Issue Prescription Controls
+        private void IPrescriptBackBtn_Click(object sender, EventArgs e)
+        {
+            IPrescriptPanel.Visible = false;
+            IPMissingPatLabel.Visible = false;
+            IPrescriptRTBox.Text = "";
+        }
+
+        private void IPrescriptSubmitBtn_Click(object sender, EventArgs e)
+        {
+            if(patID == "")
+            {
+                IPMissingPatLabel.Visible = true;
+                return;
+            }
+
+            string pre_sql = "select RecID, Prescription from medical_record where PatientID = '" + patID + "' and PhysID = 'TanakaBam';";
+            string recID = "";
+            if (dbh.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(pre_sql, dbh.connection);
+                MySqlDataReader dReader = cmd.ExecuteReader();
+
+                string activePrescription = "";
+                while (dReader.Read())
+                {
+                    activePrescription = dReader["Prescription"] + "";
+                    recID = dReader["RecID"] + "";
+                }
+                dReader.Close();
+
+                string sql = "update medical_record set Prescription = '" + activePrescription + "; " + IPrescriptRTBox.Text + "' where RecID = " + recID + ";";
+                cmd = new MySqlCommand(sql, dbh.connection);
+                cmd.ExecuteNonQuery();
+
+                dbh.CloseConnection();
+            }
+
+            IPrescriptPanel.Visible = false;
+            IPMissingPatLabel.Visible = false;
+            IPrescriptRTBox.Text = "";
+        }
+
+        #endregion
+
+        #region Edit Prescription Controls
+        private void EPrescriptBackBtn_Click(object sender, EventArgs e)
+        {
+            EPrescriptPanel.Visible = false;
+            EPrescriptMissingPatLabel.Visible = false;
+            EPrescriptRTBox.Text = "";
+        }
+
+        private void EPrescriptSubmitBtn_Click(object sender, EventArgs e)
+        {
+            string pre_sql = "select RecID from medical_record where PatientID = '" + patID + "' and PhysID = 'TanakaBam';";
+            string recID = "";
+            if (dbh.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(pre_sql, dbh.connection);
+                MySqlDataReader dReader = cmd.ExecuteReader();
+
+                while (dReader.Read())
+                {
+                    recID = dReader["RecID"] + "";
+                }
+                dReader.Close();
+
+                string sql = "update medical_record set Prescription = '" + EPrescriptRTBox.Text + "' where RecID = " + recID + ";";
+                cmd = new MySqlCommand(sql, dbh.connection);
+                cmd.ExecuteNonQuery();
+
+                dbh.CloseConnection();
+            }
+
+            EPrescriptPanel.Visible = false;
+            EPrescriptMissingPatLabel.Visible = false;
+            EPrescriptRTBox.Text = "";
         }
         #endregion
     }
